@@ -406,13 +406,19 @@ Chandigrah
 <?php 
 $j = count($produk);
 for($i=0;$i<$j;$i++){
+if(!file_exists('asset/foto_produk/'.$produk[$i]['gambar'])){
+    $img = base_url('asset/foto_produk/no-image.png');
+}else{
+    
+    $img = base_url('asset/foto_produk/'.$produk[$i]['gambar']);
+}
 ?>
 
 <div class="item">
 <div class="offer-item">
 <div class="offer-item-img">
 <div class="gambo-overlay"></div>
-<img src="<?= base_url('asset/foto_produk/'.$produk[$i]['gambar'])?>" alt="">
+<img src="<?= $img; ?>" alt="">
 </div>
 
 <div class="offer-text-dt">
@@ -502,7 +508,7 @@ for($m=0;$m<$p;$m++){
 <div class="product-item">
 <a href="<?= base_url('produk/detail/'.$pda[$m]['produk_seo']); ?>" class="product-img">
 <?php
-if($pda[$m]['gambar'] == ""){
+if(!file_exists('asset/foto_produk/'.$pda[$m]['gambar'])){
 ?>
 <img src="<?= base_url('asset/foto_produk/no-image.png')?>" alt="">
 <?php

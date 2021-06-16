@@ -613,14 +613,15 @@ Chandigrah
 <div class="pdpt-title">
 <h4>More Like This</h4>
 </div>
+
 <div class="pdpt-body scrollstyle_4">
 <div class="cart-item border_radius">
 <a href="single_product_view.html" class="cart-product-img">
-<img src="<?= base_url();?>asset/new/images/product/img-6.jpg" alt="">
+<img src="<?= base_url();?>asset/foto_produk/<?= $detail_produk[0]['gambar']?>" alt="">
 <div class="offer-badge">4% OFF</div>
 </a>
 <div class="cart-text">
-<h4>Product Title Here</h4>
+<h4><?= $title; ?></h4>
 <div class="cart-radio">
 <ul class="kggrm-now">
 <li>
@@ -641,71 +642,9 @@ Chandigrah
 </li>
 </ul>
 </div>
-<div class="qty-group">
-<div class="quantity buttons_added">
-<input type="button" value="-" class="minus minus-btn">
-<input type="number" step="1" name="quantity" value="1" class="input-text qty text">
-<input type="button" value="+" class="plus plus-btn">
-</div>
-<div class="cart-item-price">$12 <span>$15</span></div>
-</div>
-</div>
-</div>
-<div class="cart-item border_radius">
-<a href="single_product_view.html" class="cart-product-img">
-<img src="<?= base_url();?>asset/new/images/product/img-2.jpg" alt="">
-<div class="offer-badge">6% OFF</div>
-</a>
-<div class="cart-text">
-<h4>Product Title Here</h4>
-<div class="cart-radio">
-<ul class="kggrm-now">
-<li>
-<input type="radio" id="k5" name="cart2">
-<label for="k5">0.50</label>
-</li>
-<li>
-<input type="radio" id="k6" name="cart2">
-<label for="k6">1kg</label>
-</li>
-<li>
-<input type="radio" id="k7" name="cart2">
-<label for="k7">2kg</label>
-</li>
-</ul>
-</div>
-<div class="qty-group">
-<div class="quantity buttons_added">
-<input type="button" value="-" class="minus minus-btn">
-<input type="number" step="1" name="quantity" value="1" class="input-text qty text">
-<input type="button" value="+" class="plus plus-btn">
-</div>
-<div class="cart-item-price">$24 <span>$30</span></div>
-</div>
-</div>
-</div>
-<div class="cart-item border_radius">
-<a href="single_product_view.html" class="cart-product-img">
-<img src="<?= base_url();?>asset/new/images/product/img-5.jpg" alt="">
-</a>
-<div class="cart-text">
-<h4>Product Title Here</h4>
-<div class="cart-radio">
-<ul class="kggrm-now">
-<li>
-<input type="radio" id="k8" name="cart3">
-<label for="k8">0.50</label>
-</li>
-<li>
-<input type="radio" id="k9" name="cart3">
-<label for="k9">1kg</label>
-</li>
-<li>
-<input type="radio" id="k10" name="cart3">
-<label for="k10">1.50kg</label>
-</li>
-</ul>
-</div>
+
+
+
 <div class="qty-group">
 <div class="quantity buttons_added">
 <input type="button" value="-" class="minus minus-btn">
@@ -719,6 +658,8 @@ Chandigrah
 </div>
 </div>
 </div>
+
+
 <div class="col-lg-8 col-md-12">
 <div class="pdpt-bg">
 <div class="pdpt-title">
@@ -728,7 +669,7 @@ Chandigrah
 <div class="pdct-dts-1">
 <div class="pdct-dt-step">
 <h4>Description</h4>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque posuere nunc in condimentum maximus. Integer interdum sem sollicitudin, porttitor felis in, mollis quam. Nunc gravida erat eu arcu interdum eleifend. Cras tortor velit, dignissim sit amet hendrerit sed, ultricies eget est. Donec eget urna sed metus dignissim cursus.</p>
+<p></p><?=  $detail_produk[0]['keterangan']?>
 </div>
 <div class="pdct-dt-step">
 <h4>Benefits</h4>
@@ -778,10 +719,20 @@ Gambolthemes Pvt Ltd, Sks Nagar, Near Mbd Mall, Ludhana, 141001
 </div>
 <div class="col-md-12">
 <div class="owl-carousel featured-slider owl-theme">
+
+
+<?php 
+$ku1 = $this->model_app->view_where("rb_kategori_produk",array('urutan'=>'1'))->row_array(); echo $ku1['nama_kategori'];
+$pda = $this->model_reseller->produk_perkategori(0,0,$ku1['id_kategori_produk'],10)->result_array();
+$p = count($pda);
+for($m=0;$m<$p;$m++){
+?>
+
+
 <div class="item">
 <div class="product-item">
 <a href="single_product_view.html" class="product-img">
-<img src="<?= base_url();?>asset/new/images/product/img-1.jpg" alt="">
+<img src="<?= base_url('asset/foto_produk/'.$pda[$m]['gambar'])?>" alt="">
 <div class="product-absolute-options">
 <span class="offer-badge-1">6% off</span>
 <span class="like-icon" title="wishlist"></span>
@@ -789,7 +740,7 @@ Gambolthemes Pvt Ltd, Sks Nagar, Near Mbd Mall, Ludhana, 141001
 </a>
 <div class="product-text-dt">
 <p>Available<span>(In Stock)</span></p>
-<h4>Product Title Here</h4>
+<h4><?= $pda[$m]['nama_produk'] ?></h4>
 <div class="product-price">$12 <span>$15</span></div>
 <div class="qty-cart">
 <div class="quantity buttons_added">
@@ -802,174 +753,9 @@ Gambolthemes Pvt Ltd, Sks Nagar, Near Mbd Mall, Ludhana, 141001
 </div>
 </div>
 </div>
-<div class="item">
-<div class="product-item">
-<a href="single_product_view.html" class="product-img">
-<img src="<?= base_url();?>asset/new/images/product/img-2.jpg" alt="">
-<div class="product-absolute-options">
-<span class="offer-badge-1">2% off</span>
-<span class="like-icon" title="wishlist"></span>
-</div>
-</a>
-<div class="product-text-dt">
-<p>Available<span>(In Stock)</span></p>
-<h4>Product Title Here</h4>
-<div class="product-price">$10 <span>$13</span></div>
-<div class="qty-cart">
-<div class="quantity buttons_added">
-<input type="button" value="-" class="minus minus-btn">
-<input type="number" step="1" name="quantity" value="1" class="input-text qty text">
-<input type="button" value="+" class="plus plus-btn">
-</div>
-<span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
-</div>
-</div>
-</div>
-</div>
-<div class="item">
-<div class="product-item">
-<a href="single_product_view.html" class="product-img">
-<img src="<?= base_url();?>asset/new/images/product/img-3.jpg" alt="">
-<div class="product-absolute-options">
-<span class="offer-badge-1">5% off</span>
-<span class="like-icon" title="wishlist"></span>
-</div>
-</a>
-<div class="product-text-dt">
-<p>Available<span>(In Stock)</span></p>
-<h4>Product Title Here</h4>
-<div class="product-price">$5 <span>$8</span></div>
-<div class="qty-cart">
-<div class="quantity buttons_added">
-<input type="button" value="-" class="minus minus-btn">
-<input type="number" step="1" name="quantity" value="1" class="input-text qty text">
-<input type="button" value="+" class="plus plus-btn">
-</div>
-<span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
-</div>
-</div>
-</div>
-</div>
-<div class="item">
-<div class="product-item">
-<a href="single_product_view.html" class="product-img">
-<img src="<?= base_url();?>asset/new/images/product/img-4.jpg" alt="">
-<div class="product-absolute-options">
-<span class="offer-badge-1">3% off</span>
-<span class="like-icon" title="wishlist"></span>
-</div>
-</a>
-<div class="product-text-dt">
-<p>Available<span>(In Stock)</span></p>
-<h4>Product Title Here</h4>
-<div class="product-price">$15 <span>$20</span></div>
-<div class="qty-cart">
-<div class="quantity buttons_added">
-<input type="button" value="-" class="minus minus-btn">
-<input type="number" step="1" name="quantity" value="1" class="input-text qty text">
-<input type="button" value="+" class="plus plus-btn">
-</div>
-<span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
-</div>
-</div>
-</div>
-</div>
-<div class="item">
-<div class="product-item">
-<a href="single_product_view.html" class="product-img">
-<img src="<?= base_url();?>asset/new/images/product/img-5.jpg" alt="">
-<div class="product-absolute-options">
-<span class="offer-badge-1">2% off</span>
-<span class="like-icon" title="wishlist"></span>
-</div>
-</a>
-<div class="product-text-dt">
-<p>Available<span>(In Stock)</span></p>
-<h4>Product Title Here</h4>
-<div class="product-price">$9 <span>$10</span></div>
-<div class="qty-cart">
-<div class="quantity buttons_added">
-<input type="button" value="-" class="minus minus-btn">
-<input type="number" step="1" name="quantity" value="1" class="input-text qty text">
-<input type="button" value="+" class="plus plus-btn">
-</div>
-<span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
-</div>
-</div>
-</div>
-</div>
-<div class="item">
-<div class="product-item">
-<a href="single_product_view.html" class="product-img">
-<img src="<?= base_url();?>asset/new/images/product/img-6.jpg" alt="">
-<div class="product-absolute-options">
-<span class="offer-badge-1">2% off</span>
-<span class="like-icon" title="wishlist"></span>
-</div>
-</a>
-<div class="product-text-dt">
-<p>Available<span>(In Stock)</span></p>
-<h4>Product Title Here</h4>
-<div class="product-price">$7 <span>$8</span></div>
-<div class="qty-cart">
-<div class="quantity buttons_added">
-<input type="button" value="-" class="minus minus-btn">
-<input type="number" step="1" name="quantity" value="1" class="input-text qty text">
-<input type="button" value="+" class="plus plus-btn">
-</div>
-<span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
-</div>
-</div>
-</div>
-</div>
-<div class="item">
-<div class="product-item">
-<a href="single_product_view.html" class="product-img">
-<img src="<?= base_url();?>asset/new/images/product/img-7.jpg" alt="">
-<div class="product-absolute-options">
-<span class="offer-badge-1">1% off</span>
-<span class="like-icon" title="wishlist"></span>
-</div>
-</a>
-<div class="product-text-dt">
-<p>Available<span>(In Stock)</span></p>
-<h4>Product Title Here</h4>
-<div class="product-price">$6.95 <span>$7</span></div>
-<div class="qty-cart">
-<div class="quantity buttons_added">
-<input type="button" value="-" class="minus minus-btn">
-<input type="number" step="1" name="quantity" value="1" class="input-text qty text">
-<input type="button" value="+" class="plus plus-btn">
-</div>
-<span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
-</div>
-</div>
-</div>
-</div>
-<div class="item">
-<div class="product-item">
-<a href="single_product_view.html" class="product-img">
-<img src="<?= base_url();?>asset/new/images/product/img-8.jpg" alt="">
-<div class="product-absolute-options">
-<span class="offer-badge-1">3% off</span>
-<span class="like-icon" title="wishlist"></span>
-</div>
-</a>
-<div class="product-text-dt">
-<p>Available<span>(In Stock)</span></p>
-<h4>Product Title Here</h4>
-<div class="product-price">$8 <span>$10</span></div>
-<div class="qty-cart">
-<div class="quantity buttons_added">
-<input type="button" value="-" class="minus minus-btn">
-<input type="number" step="1" name="quantity" value="1" class="input-text qty text">
-<input type="button" value="+" class="plus plus-btn">
-</div>
-<span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
-</div>
-</div>
-</div>
-</div>
+
+<?php } ?>
+
 </div>
 </div>
 </div>
