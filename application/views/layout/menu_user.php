@@ -235,7 +235,7 @@ Fruits and Vegetables
 <a href="index.html"><img src="<?= base_url()?>asset/images/dark-logo-1.svg" alt=""></a>
 </div>
 <div class="main_logo" id="logo">
-<a href="index.html"><img src="<?= base_url()?>asset/images/logo.svg" alt=""></a>
+<a href="index.html"><img src="<?= base_url()?>asset/images/dbelanjain.png" alt=""></a>
 <a href="index.html"><img class="logo-inverse" src="<?= base_url()?>asset/images/dark-logo.svg" alt=""></a>
 </div>
 <div class="select_location">

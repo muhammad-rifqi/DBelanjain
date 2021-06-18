@@ -1,4 +1,3 @@
-
 <?php
 $rows = $this->db->query("SELECT a.*, b.nama_kota, c.nama_provinsi FROM `rb_reseller` a JOIN rb_kota b ON a.kota_id=b.kota_id
                             JOIN rb_provinsi c ON b.provinsi_id=c.provinsi_id where a.id_reseller='$record[id_reseller]'")->row_array();
@@ -6,17 +5,20 @@ $kat = $this->model_app->view_where('rb_kategori_produk',array('id_kategori_prod
 $jual = $this->model_reseller->jual_reseller($record['id_reseller'],$record['id_produk'])->row_array();
 $beli = $this->model_reseller->beli_reseller($record['id_reseller'],$record['id_produk'])->row_array();
 $disk = $this->db->query("SELECT * FROM rb_produk_diskon where id_produk='$record[id_produk]'")->row_array();
-$diskon = rupiah(($disk['diskon']/$record['harga_konsumen'])*100,0)."%";
+$diskon = ($disk['diskon']/$record['harga_konsumen'])*100;
 if ($disk['diskon']>0){ $diskon_persen = "<div class='top-right'>$diskon</div>"; }else{ $diskon_persen = ''; }
 if ($disk['diskon']>=1){ 
-  $harga_konsumen =  "Rp ".rupiah($record['harga_konsumen']-$disk['diskon']);
-  $harga_asli = "Rp ".rupiah($record['harga_konsumen']);
+  $harga_konsumen =  "Rp ".($record['harga_konsumen']-$disk['diskon']);
+  $harga_asli = "Rp ".$record['harga_konsumen'];
 }else{
-  $harga_konsumen =  "Rp ".rupiah($record['harga_konsumen']);
+  $harga_konsumen =  "Rp ".$record['harga_konsumen'];
   $harga_asli = "";
 }
 
 ?>
+
+<?php include APPPATH."views/layout/menu_user.php" ; ?>
+
 
 <div class="wrapper">
 <div class="gambo-Breadcrumb">
@@ -72,7 +74,7 @@ if ($disk['diskon']>=1){
 </div>
 <div class="col-lg-8 col-md-8">
 <div class="product-dt-right">
-<h2><?= $title; ?></h2>
+<h2><?= $detail_produk[0]['nama_produk']; ?></h2>
 <div class="no-stock">
 <p class="pd-no">Product No.<span>12345</span></p>
 <p class="stock-qty">Available<span>(Instock)</span></p>
@@ -101,7 +103,7 @@ if ($disk['diskon']>=1){
 <div class="product-group-dt">
 <ul>
 <li><div class="main-price color-discount">Discount Price<span><?= $diskon?></span></div></li>
-<li><div class="main-price mrp-price">MRP Price<span><?= $detail_produk[0]['harga_b']?></span></div></li>
+<li><div class="main-price mrp-price">MRP Price<span><?= $detail_produk[0]['harga_beli']?></span></div></li>
 </ul>
 <ul class="gty-wish-share">
 <li>
@@ -335,8 +337,6 @@ Gambolthemes Pvt Ltd, Sks Nagar, Near Mbd Mall, Ludhana, 141001
 
 
 <?php 
-$ku1 = $this->model_app->view_where("rb_kategori_produk",array('urutan'=>'1'))->row_array();
-$pda = $this->model_reseller->produk_perkategori(0,0,$ku1['id_kategori_produk'],10)->result_array();
 
 $p = count($pda);
 for($m=0;$m<$p;$m++){

@@ -8,7 +8,7 @@
 <meta name="author" content="Gambolthemes">
 <title>DBelanjain</title>
 
-<link rel="icon" type="image/png" href="images/fav.png">
+<link rel="icon" type="image/png" href="<?= base_url()?>asset/images/logo-cop.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
 <link href='<?= base_url()?>asset/vendor/unicons-2.0.1/css/unicons.css' rel='stylesheet'>

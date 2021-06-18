@@ -78,8 +78,8 @@
 <div class="second-row-item-app">
 <h4>Download App</h4>
 <ul>
-<li><a href="#"><img class="download-btn" src="images/download-1.svg" alt=""></a></li>
-<li><a href="#"><img class="download-btn" src="images/download-2.svg" alt=""></a></li>
+<li><a href="#"><img class="download-btn" src="<?= base_url()?>asset/images/download-1.svg" alt=""></a></li>
+<li><a href="#"><img class="download-btn" src="<?= base_url()?>asset/images/download-2.svg" alt=""></a></li>
 </ul>
 </div>
 <div class="second-row-item-payment">
@@ -87,19 +87,19 @@
  <div class="footer-payments">
 <ul id="paypal-gateway" class="financial-institutes">
 <li class="financial-institutes__logo">
-<img alt="Visa" title="Visa" src="images/footer-icons/pyicon-6.svg">
+<img alt="Visa" title="Visa" src="<?= base_url()?>asset/images/footer-icons/pyicon-6.svg">
 </li>
 <li class="financial-institutes__logo">
-<img alt="Visa" title="Visa" src="images/footer-icons/pyicon-1.svg">
+<img alt="Visa" title="Visa" src="<?= base_url()?>asset/images/footer-icons/pyicon-1.svg">
 </li>
 <li class="financial-institutes__logo">
-<img alt="MasterCard" title="MasterCard" src="images/footer-icons/pyicon-2.svg">
+<img alt="MasterCard" title="MasterCard" src="<?= base_url()?>asset/images/footer-icons/pyicon-2.svg">
 </li>
 <li class="financial-institutes__logo">
-<img alt="American Express" title="American Express" src="images/footer-icons/pyicon-3.svg">
+<img alt="American Express" title="American Express" src="<?= base_url()?>asset/images/footer-icons/pyicon-3.svg">
 </li>
 <li class="financial-institutes__logo">
-<img alt="Discover" title="Discover" src="images/footer-icons/pyicon-4.svg">
+<img alt="Discover" title="Discover" src="<?= base_url()?>asset/images/footer-icons/pyicon-4.svg">
 </li>
 </ul>
 </div>
@@ -143,7 +143,7 @@
 <script src="<?= base_url()?>asset/vendor/OwlCarousel/owl.carousel.js"></script>
 <script src="<?= base_url()?>asset/vendor/semantic/semantic.min.js"></script>
 <script src="<?= base_url()?>asset/js/jquery.countdown.min.js"></script>
-<script src="<?= base_url('asset/new/')?>js/product.thumbnail.slider.js"></script>
+<script src="<?= base_url()?>asset/js/product.thumbnail.slider.js"></script>
 <script src="<?= base_url()?>asset/js/custom.js"></script>
 <script src="<?= base_url()?>asset/js/offset_overlay.js"></script>
 <script src="<?= base_url()?>asset/js/night-mode.js"></script>

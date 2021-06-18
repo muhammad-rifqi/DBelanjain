@@ -110,7 +110,7 @@ for($m=0;$m<$p;$m++){
 
 <div class="item">
 <div class="product-item">
-<a href="<?= base_url('produk/detail/'.$pda[$m]['produk_seo']); ?>" class="product-img">
+<a href="<?= base_url('user/detail/'.$pda[$m]['produk_seo']); ?>" class="product-img">
 
 <img src="<?= $img; ?>" alt="">
 
@@ -268,8 +268,8 @@ $a= count($produk3);
  for($b=0;$b<$a;$b++){
 
     
-    if(file_exists("asset/foto_produk/".$produk3[$b]['produk_seo'])){
-        $im =  base_url('asset/foto_produk/'.$produk3[$b]['produk_seo']);
+    if(file_exists("asset/foto_produk/".$produk3[$b]['gambar'])){
+        $im =  base_url('asset/foto_produk/'.$produk3[$b]['gambar']);
     }else{
         $im =  base_url('asset/foto_produk/no-image.png');
     }
@@ -280,7 +280,7 @@ $a= count($produk3);
 <div class="item">
 <div class="product-item">
 <a href="<?= base_url('produk/detail/'.$produk3[$b]['produk_seo']); ?>" class="product-img">
-<img src="<?= base_url('asset/foto_produk/'.$produk3[$b]['gambar'])?>" alt="">
+<img src="<?= $im; ?>" alt="">
 <div class="product-absolute-options">
 <span class="offer-badge-1">New</span>
 <span class="like-icon" title="wishlist"></span>
