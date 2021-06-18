@@ -27,7 +27,7 @@ for($i=0;$i<$jumlah;$i++){
 <div class="top-text-1">Buy More & Save More</div>
 <span>Fresh Vegetables</span>
 </div>
-<a href="<?= base_url('produk/detail/'.$produk[$i]['produk_seo']); ?>" class="Offer-shop-btn hover-btn">Shop Now</a>
+<a href="<?= base_url('index.php/user/detail/'.$produk[$i]['produk_seo']); ?>" class="Offer-shop-btn hover-btn">Shop Now</a>
 </div>
 </div>
 </div>
@@ -110,7 +110,7 @@ for($m=0;$m<$p;$m++){
 
 <div class="item">
 <div class="product-item">
-<a href="<?= base_url('user/detail/'.$pda[$m]['produk_seo']); ?>" class="product-img">
+<a href="<?= base_url('index.php/user/detail/'.$pda[$m]['produk_seo']); ?>" class="product-img">
 
 <img src="<?= $img; ?>" alt="">
 
@@ -214,7 +214,7 @@ for($z=0;$z<$y;$z++){
 
 <div class="item">
 <div class="product-item">
-<a href="<?= base_url('produk/detail/'.$produk2[$z]['produk_seo']); ?>" class="product-img">
+<a href="<?= base_url('index.php/user/detail/'.$produk2[$z]['produk_seo']); ?>" class="product-img">
 <img src="<?= $im; ?>" alt="">
 <div class="product-absolute-options">
 <span class="offer-badge-1">6% off</span>
@@ -279,7 +279,7 @@ $a= count($produk3);
 
 <div class="item">
 <div class="product-item">
-<a href="<?= base_url('produk/detail/'.$produk3[$b]['produk_seo']); ?>" class="product-img">
+<a href="<?= base_url('index.php/user/detail/'.$produk3[$b]['produk_seo']); ?>" class="product-img">
 <img src="<?= $im; ?>" alt="">
 <div class="product-absolute-options">
 <span class="offer-badge-1">New</span>

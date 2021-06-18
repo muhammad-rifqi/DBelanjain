@@ -118,7 +118,7 @@ if ($disk['diskon']>=1){
 <li><span class="like-icon save-icon" title="wishlist"></span></li>
 </ul>
 <ul class="ordr-crt-share">
-<li><button class="add-cart-btn hover-btn"  onclick="<?= base_url('/auth/login');?>"><i class="uil uil-shopping-cart-alt"></i>Add to Cart</button></li>
+<li><button class="add-cart-btn hover-btn"  onClick="window.location='<?= base_url('index.php/auth/login')?>'"><i class="uil uil-shopping-cart-alt"></i>Add to Cart</button></li>
 <li><button class="order-btn hover-btn">Order Now</button></li>
 </ul>
 </div>
