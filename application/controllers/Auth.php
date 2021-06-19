@@ -21,16 +21,17 @@ class Auth extends CI_Controller {
 			if ($this->input->post('password')==$this->input->post('repassword')){
 				$cek_username = $this->db->query("SELECT * FROM rb_konsumen where username='".$this->input->post('username')."'");
 				if ($cek_username->num_rows()<='0'){
-					$ex = explode('@',$this->input->post('a'));
-					$data = array('username'=>cetak($this->input->post('username')),
+					$ex = explode('@',$this->input->post('email'));
+					$data = array('username'=>$this->input->post('username'),
 								'password'=>hash("sha512", md5($this->input->post('password'))),
 								'nama_lengkap'=>$ex[0],
-								'email'=>cetak($this->input->post('a')),
-								'jenis_kelamin'=>cetak($this->input->post('jenis_kelamin')),
-								'no_hp'=>cetak($this->input->post('b')),
-								'token'=>config('token_referral'),
+								'email'=>$this->input->post('email'),
+								'jenis_kelamin'=>'Laki-laki',
+								'no_hp'=>$this->input->post('phone'),
+								'token'=>'Y',
 								'referral_id'=>$this->session->referral,
 								'tanggal_daftar'=>date('Y-m-d H:i:s'));
+					$this->load->model('model_app');
 					$this->model_app->insert('rb_konsumen',$data);
 					$id = $this->db->insert_id();
 					$this->session->set_userdata(array('id_konsumen'=>$id, 'level'=>'konsumen'));
@@ -39,6 +40,7 @@ class Auth extends CI_Controller {
 					$iden = $this->db->query("SELECT * FROM identitas where id_identitas='1'")->row_array();
 					//$subject      = "$iden[pengirim_email] - Pendaftaran Sukses,..";
 					$logo = $this->db->query("SELECT * FROM logo ORDER BY id_logo DESC LIMIT 1")->row_array();
+					$this->load->model('model_reseller');
 					$kons = $this->model_reseller->profile_konsumen($id)->row_array();
 
 					//$message  = "<html><body><span style='font-size:18px; color:green'>Selamat Bergabung di $iden[url]</span><br>
@@ -54,7 +56,7 @@ class Auth extends CI_Controller {
 					
 					//echo kirim_email($subject,$message,$kons['email']); 
 					//echo $this->session->set_flashdata('message', '<div class="alert alert-success"><center>Terima kasih, anda sudah terdaftar di <b>'.$iden['url'].'</b> silahkan cek email untuk verifikasi!</center></div>');
-					redirect('members/edit_profile');
+					redirect('user/profile');
 				}else{
 					echo $this->session->set_flashdata('message', '<div class="alert alert-danger"><center>Username/Email/No Telpon Telah Digunakan!</center></div>');
 					redirect('auth/login');
@@ -89,28 +91,7 @@ class Auth extends CI_Controller {
 			    $row = $cek->row_array();
 			    $total = $cek->num_rows();
 				if ($total > 0){
-					$this->session->set_userdata(array('id_konsumen'=>$row['id_konsumen'], 'level'=>'konsumen'));
-
-					if ($this->session->idp!=''){
-						$keranjang = $this->db->query("SELECT a.*, c.id_konsumen FROM rb_penjualan_temp a JOIN rb_produk b ON a.id_produk=b.id_produk JOIN rb_reseller c ON b.id_reseller=c.id_reseller where a.session='".$this->session->idp."'");
-						foreach ($keranjang->result_array() as $rows) {
-							$cek_exist = $this->db->query("SELECT * FROM rb_penjualan_temp where id_produk='$rows[id_produk]' AND session='$row[id_konsumen]'");
-							if ($cek_exist->num_rows()<=0){
-								if ($rows['id_konsumen']!=$row['id_konsumen']){
-									$this->db->query("UPDATE rb_penjualan_temp SET session='$row[id_konsumen]' where id_penjualan_detail='$rows[id_penjualan_detail]'");
-								}
-							}else{
-								$this->db->query("UPDATE rb_penjualan_temp SET jumlah='$rows[jumlah]' where id_penjualan_detail='$rows[id_penjualan_detail]'");
-							}
-						}
-					}
-
-					$this->session->set_userdata(array('idp'=>$row['id_konsumen']));
-
-					//redirect('members/profile');
-					echo"<pre>";
-						print_r($this->session);
-					echo"<pre>";
+					echo $total;
 				}else{
 					echo $this->session->set_flashdata('message', '<div class="alert alert-danger"><center>Maaf, Username atau password salah!</center></div>');
 					redirect('index.php/auth/login');

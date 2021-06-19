@@ -58,7 +58,7 @@
 <i class="uil uil-mobile-android-alt lgn_icon"></i>
 </div>
 <div class="form-group pos_rel">
-<input id="password1" name="password1" type="password" placeholder="Enter Password" class="form-control lgn_input" required="">
+<input id="password1" name="password" type="password" placeholder="Enter Password" class="form-control lgn_input" required="">
 <i class="uil uil-padlock lgn_icon"></i>
 </div>
 <button class="login-btn hover-btn" type="submit">Sign In Now</button>

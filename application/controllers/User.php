@@ -48,4 +48,15 @@ class User extends CI_Controller {
 	
 
 
+	public function profile(){
+
+		$a['header'] =  $this->load->view('layout/header_frontend',null, true);
+		$a['footer'] =  $this->load->view('layout/footer_frontend',null, true);
+		$a['content'] =  $this->load->view('home/profile',$t, true);
+		$page = $this->load->view('layout/layout_frontend',$a);
+		return $page;
+		
+	}
+
+
 }

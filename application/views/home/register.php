@@ -41,11 +41,11 @@
 <form method="POST" action="<?= base_url('index.php/auth/registerprocess')?>">
 <div class="form-title"><h6>Sign Up</h6></div>
 <div class="form-group pos_rel">
-<input id="full[name]" name="fullname" type="text" placeholder="Full name" class="form-control lgn_input" required="">
+<input id="full[name]" name="username" type="text" placeholder="User name" class="form-control lgn_input" required="">
 <i class="uil uil-user-circle lgn_icon"></i>
 </div>
 <div class="form-group pos_rel">
-<input id="email[address]" name="emailaddress" type="email" placeholder="Email Address" class="form-control lgn_input" required="">
+<input id="email[address]" name="email" type="email" placeholder="Email Address" class="form-control lgn_input" required="">
 <i class="uil uil-envelope lgn_icon"></i>
 </div>
 <div class="form-group pos_rel">
@@ -54,12 +54,12 @@
 </div>
 
 <div class="form-group pos_rel">
-<input id="password2" name="password2" type="password" placeholder="New Password" class="form-control lgn_input" required="">
+<input id="password2" name="password" type="password" placeholder="Password" class="form-control lgn_input" required="">
 <i class="uil uil-padlock lgn_icon"></i>
 </div>
 
 <div class="form-group pos_rel">
-<input id="password2" name="password2" type="password" placeholder="Confirm Password" class="form-control lgn_input" required="">
+<input id="password2" name="repassword" type="password" placeholder="Confirm Password" class="form-control lgn_input" required="">
 <i class="uil uil-padlock lgn_icon"></i>
 </div>
 
