@@ -50,6 +50,11 @@ class User extends CI_Controller {
 
 	public function profile(){
 
+		$t['username'] = $this->session->userdata('username');
+		$t['email'] = $this->session->userdata('email');
+		$t['id_konsumen'] = $this->session->userdata('id_konsumen');
+		$this->load->model('user_model','products'); 
+		$t['cp'] = $this->products->category_product();
 		$a['header'] =  $this->load->view('layout/header_frontend',null, true);
 		$a['footer'] =  $this->load->view('layout/footer_frontend',null, true);
 		$a['content'] =  $this->load->view('home/profile',$t, true);
@@ -58,5 +63,89 @@ class User extends CI_Controller {
 		
 	}
 
+	public function wishlist(){
+
+		$t['username'] = $this->session->userdata('username');
+		$t['email'] = $this->session->userdata('email');
+		$t['id_konsumen'] = $this->session->userdata('id_konsumen');
+		$this->load->model('user_model','products'); 
+		$t['cp'] = $this->products->category_product();
+		$a['header'] =  $this->load->view('layout/header_frontend',null, true);
+		$a['footer'] =  $this->load->view('layout/footer_frontend',null, true);
+		$a['content'] =  $this->load->view('home/wishlist',$t, true);
+		$page = $this->load->view('layout/layout_frontend',$a);
+		return $page;
+		
+	}
+
+
+	public function wallet(){
+
+		$t['username'] = $this->session->userdata('username');
+		$t['email'] = $this->session->userdata('email');
+		$t['id_konsumen'] = $this->session->userdata('id_konsumen');
+		$this->load->model('user_model','products'); 
+		$t['cp'] = $this->products->category_product();
+		$a['header'] =  $this->load->view('layout/header_frontend',null, true);
+		$a['footer'] =  $this->load->view('layout/footer_frontend',null, true);
+		$a['content'] =  $this->load->view('home/wallet',$t, true);
+		$page = $this->load->view('layout/layout_frontend',$a);
+		return $page;
+		
+	}
+
+	public function rewards(){
+
+		$t['username'] = $this->session->userdata('username');
+		$t['email'] = $this->session->userdata('email');
+		$t['id_konsumen'] = $this->session->userdata('id_konsumen');
+		$this->load->model('user_model','products'); 
+		$t['cp'] = $this->products->category_product();
+		$a['header'] =  $this->load->view('layout/header_frontend',null, true);
+		$a['footer'] =  $this->load->view('layout/footer_frontend',null, true);
+		$a['content'] =  $this->load->view('home/rewards',$t, true);
+		$page = $this->load->view('layout/layout_frontend',$a);
+		return $page;
+		
+	}
+
+
+
+	public function orders(){
+
+		$t['username'] = $this->session->userdata('username');
+		$t['email'] = $this->session->userdata('email');
+		$t['id_konsumen'] = $this->session->userdata('id_konsumen');
+		$this->load->model('user_model','products'); 
+		$t['cp'] = $this->products->category_product();
+		$a['header'] =  $this->load->view('layout/header_frontend',null, true);
+		$a['footer'] =  $this->load->view('layout/footer_frontend',null, true);
+		$a['content'] =  $this->load->view('home/orders',$t, true);
+		$page = $this->load->view('layout/layout_frontend',$a);
+		return $page;
+		
+	}
+
+	public function address(){
+
+		$t['username'] = $this->session->userdata('username');
+		$t['email'] = $this->session->userdata('email');
+		$t['id_konsumen'] = $this->session->userdata('id_konsumen');
+		$this->load->model('user_model','products'); 
+		$t['cp'] = $this->products->category_product();
+		$a['header'] =  $this->load->view('layout/header_frontend',null, true);
+		$a['footer'] =  $this->load->view('layout/footer_frontend',null, true);
+		$a['content'] =  $this->load->view('home/address',$t, true);
+		$page = $this->load->view('layout/layout_frontend',$a);
+		return $page;
+		
+	}
+
+
+	public function logout ()
+		{
+			$this->session->sess_destroy();
+			redirect('auth/login');
+		}
 
 }

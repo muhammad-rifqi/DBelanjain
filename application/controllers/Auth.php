@@ -91,7 +91,8 @@ class Auth extends CI_Controller {
 			    $row = $cek->row_array();
 			    $total = $cek->num_rows();
 				if ($total > 0){
-					echo $total;
+					$this->session->set_userdata(array('id_konsumen'=>$row['id_konsumen'], 'email'=>$row['email'],'username'=>$row['username']));
+					redirect('user/profile');
 				}else{
 					echo $this->session->set_flashdata('message', '<div class="alert alert-danger"><center>Maaf, Username atau password salah!</center></div>');
 					redirect('index.php/auth/login');

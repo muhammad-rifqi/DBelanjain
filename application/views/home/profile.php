@@ -17,42 +17,23 @@
 </div>
 </div>
 </div>
-<div class="dashboard-group">
-<div class="container">
-<div class="row">
-<div class="col-lg-12">
-<div class="user-dt">
-<div class="user-img">
-<img src="images/avatar/img-5.jpg" alt="">
-<div class="img-add">
-<input type="file" id="file">
-<label for="file"><i class="uil uil-camera-plus"></i></label>
-</div>
-</div>
-<h4>Johe Doe</h4>
-<p>+91999999999<a href="#"><i class="uil uil-edit"></i></a></p>
-<div class="earn-points"><img src="images/Dollar.svg" alt="">Points : <span>20</span></div>
-</div>
-</div>
-</div>
-</div>
-</div>
+
+<?php include"header_member.php"; ?>
+
 <div class="">
 <div class="container">
 <div class="row">
 <div class="col-lg-3 col-md-4">
 <div class="left-side-tabs">
 <div class="dashboard-left-links">
-<a href="dashboard_overview.html" class="user-item active"><i class="uil uil-apps"></i>Overview</a>
-<a href="dashboard_my_orders.html" class="user-item"><i class="uil uil-box"></i>My Orders</a>
-<a href="dashboard_my_rewards.html" class="user-item"><i class="uil uil-gift"></i>My Rewards</a>
-<a href="dashboard_my_wallet.html" class="user-item"><i class="uil uil-wallet"></i>My Wallet</a>
-<a href="dashboard_my_wishlist.html" class="user-item"><i class="uil uil-heart"></i>Shopping Wishlist</a>
-<a href="dashboard_my_addresses.html" class="user-item"><i class="uil uil-location-point"></i>My Address</a>
-<a href="sign_in.html" class="user-item"><i class="uil uil-exit"></i>Logout</a>
+
+<?php include"menu_member.php"; ?>
+
 </div>
 </div>
 </div>
+
+
 <div class="col-lg-9 col-md-8">
 <div class="dashboard-right">
 <div class="row">
@@ -61,7 +42,7 @@
 <h4><i class="uil uil-apps"></i>Overview</h4>
 </div>
 <div class="welcome-text">
-<h2>Hi! John Doe</h2>
+<h2>Hi! <?= $username ?></h2>
 </div>
 </div>
 <div class="col-lg-6 col-md-12">
