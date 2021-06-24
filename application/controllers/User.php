@@ -29,6 +29,37 @@ class User extends CI_Controller {
 	}
 
 
+	public function allproduk() {
+		$this->load->model('user_model','products');
+		$this->load->model('model_app');
+		$this->load->model('model_reseller');  
+		$t['produk'] = $this->products->produk_flashdeal(0,0,15);
+		$t['cp'] = $this->products->category_product();
+		$a['header'] =  $this->load->view('layout/header_frontend',null, true);
+		$a['footer'] =  $this->load->view('layout/footer_frontend',null, true);
+		$a['content'] =  $this->load->view('home/allproduk',$t, true);
+		$page = $this->load->view('layout/layout_frontend',$a);
+		return $page;
+	}
+
+
+	public function kontak(){
+
+		$t['username'] = $this->session->userdata('username');
+		$t['email'] = $this->session->userdata('email');
+		$t['id_konsumen'] = $this->session->userdata('id_konsumen');
+		$this->load->model('user_model','products'); 
+		$t['cp'] = $this->products->category_product();
+		$a['header'] =  $this->load->view('layout/header_frontend',null, true);
+		$a['footer'] =  $this->load->view('layout/footer_frontend',null, true);
+		$a['content'] =  $this->load->view('home/kontak',$t, true);
+		$page = $this->load->view('layout/layout_frontend',$a);
+		return $page;
+		
+	}
+
+
+
 	public function detail(){
 		$ids = $this->uri->segment(3);
 		$this->load->model('model_app');
