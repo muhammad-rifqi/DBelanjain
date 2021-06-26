@@ -338,38 +338,6 @@ Chandigrah
 <li class="nav-item"><a href="<?= base_url();?>" class="nav-link active" title="Home">Home</a></li>
 <li class="nav-item"><a href="<?= base_url('user/allproduk');?>" class="nav-link new_item" title="New Products">New Products</a></li>
 <li class="nav-item"><a href="<?= base_url('user/allproduk');?>" class="nav-link" title="Featured Products">Featured Products</a></li>
-<li class="nav-item">
-<div class="ui icon top left dropdown nav__menu">
-<a class="nav-link" title="Pages">Pages <i class="uil uil-angle-down"></i></a>
-<div class="menu dropdown_page">
-<a href="<?= base_url();?>" class="item channel_item page__links">Account</a>
-<a href="about_us.html" class="item channel_item page__links">About Us</a>
-<a href="<?= base_url('user/produk');?>" class="item channel_item page__links">Shop Grid</a>
-<a href="#" class="item channel_item page__links">Single Product View</a>
- <a href="#" class="item channel_item page__links">Checkout</a>
-<a href="#" class="item channel_item page__links">Product Request</a>
-<a href="#" class="item channel_item page__links">Order Placed</a>
-<a href="#" class="item channel_item page__links">Bill Slip</a>
-<a href="#" class="item channel_item page__links">Sign In</a>
-<a href="#" class="item channel_item page__links">Sign Up</a>
-<a href="#" class="item channel_item page__links">Forgot Password</a>
-<a href="#" class="item channel_item page__links">Contact Us</a>
-</div>
-</div>
-</li>
-<li class="nav-item">
-<div class="ui icon top left dropdown nav__menu">
-<a class="nav-link" title="Blog">Blog <i class="uil uil-angle-down"></i></a>
-<div class="menu dropdown_page">
-<a href="#" class="item channel_item page__links">Our Blog</a>
-<a href="#" class="item channel_item page__links">Our Blog Two No Sidebar</a>
-<a href="#" class="item channel_item page__links">Our Blog with Left Sidebar</a>
-<a href="#" class="item channel_item page__links">Our Blog with Right Sidebar</a>
-<a href="#" class="item channel_item page__links">Blog Detail View</a>
-<a href="#" class="item channel_item page__links">Blog Detail View with Sidebar</a>
-</div>
-</div>
-</li>
 <li class="nav-item"><a href="<?= base_url('user/kontak');?>" class="nav-link" title="Contact">Contact Us</a></li>
 </ul>
 </div>
