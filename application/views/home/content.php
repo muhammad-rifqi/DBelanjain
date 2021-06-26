@@ -175,11 +175,11 @@ for($m=0;$m<$p;$m++){
 </div>
 </a>
 </div>
-<div class="col-md-12">
+<!--div class="col-md-12">
 <a href="#" class="code-offer-item">
-<img src="<?= base_url()?>asset/images/best-offers/offer-4.jpg" alt="">
+<img src="<?//= base_url()?>asset/images/best-offers/offer-4.jpg" alt="">
 </a>
-</div>
+</div-->
 </div>
 </div>
 </div>

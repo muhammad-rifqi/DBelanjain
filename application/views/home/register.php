@@ -26,7 +26,7 @@
 <body>
 
 
-<div class="sign-inup">
+<div class="sign-inup" style="background:url('<?= base_url('asset/images/Register.jpg')?>'); width: 100%; height: 100%; background-size:cover">
 <div class="container">
 <div class="row justify-content-center">
 <div class="col-lg-5">
@@ -63,12 +63,13 @@
 <i class="uil uil-padlock lgn_icon"></i>
 </div>
 
-<button class="login-btn hover-btn" type="submit">Sign Up Now</button>
+<button class="login-btn hover-btn" style="background-color:#ccc; color: #000; font-weigh:bold" type="submit">Sign Up Now</button>
 </form>
 </div>
-<div class="signup-link">
+<br><br>
+<!--div class="signup-link">
 <p>I have an account? - <a href="<?= base_url();?>index.php/auth/login">Sign In Now</a></p>
-</div>
+</div-->
 </div>
 </div>
 </div>

@@ -37,7 +37,7 @@
       
 
 
-<div class="sign-inup">
+<div class="sign-inup"  style="background:url('<?= base_url('asset/images/Login.jpg')?>'); width: 100%; height: 100%; background-size:cover">
 <div class="container">
 <div class="row justify-content-center">
 <div class="col-lg-5">
@@ -52,7 +52,7 @@
 <div class="form-dt">
 <div class="form-inpts checout-address-step">
 <form method="POST" action="<?= base_url('index.php/auth/loginprocess')?>">
-<div class="form-title"><h6>Sign In</h6></div>
+<div class="form-title"><h6>Masuk</h6></div>
 <div class="form-group pos_rel">
 <input id="phone[number]" name="username" type="text" placeholder="Enter Your Username" class="form-control lgn_input" required="">
 <i class="uil uil-mobile-android-alt lgn_icon"></i>
@@ -61,15 +61,16 @@
 <input id="password1" name="password" type="password" placeholder="Enter Password" class="form-control lgn_input" required="">
 <i class="uil uil-padlock lgn_icon"></i>
 </div>
-<button class="login-btn hover-btn" type="submit">Sign In Now</button>
+<button class="login-btn hover-btn" style="background-color:#ccc; color: #000; font-weigh:bold" type="submit">Selanjutnya</button>
 </form>
 </div>
-<div class="password-forgor">
+<!--div class="password-forgor">
 <a href="forgot_password.html">Forgot Password?</a>
 </div>
 <div class="signup-link">
-<p>Don't have an account? - <a href="<?= base_url('index.php/auth/register');?>">Sign Up Now</a></p>
-</div>
+<p>Don't have an account? - <a href="<?//= base_url('index.php/auth/register');?>">Sign Up Now</a></p>
+</div-->
+<br><br>
 </div>
 </div>
 </div>
